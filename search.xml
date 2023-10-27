@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -221,13 +207,17 @@
       </tags>
   </entry>
   <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
 ]]></content>
       <tags>
-        <tag>VS报错</tag>
+        <tag>诗词</tag>
+        <tag>李白</tag>
       </tags>
   </entry>
   <entry>
@@ -260,5 +250,30 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这篇文章中，我们介绍了如何创建和配置 Hexo 博客，以及如何使用一些常用的插件和主题来提升博客的体验。通过这篇文章，希望能够帮助读者快速上手 Hexo，并开始创建自己的博客。</p>
 <p>感谢您的阅读，希望您喜欢这篇文章！  </p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>错误	C2371	Cheer 重定义；不同的基类型</title>
+    <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
+    <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
+<p>问题区: <img src="/../images/1.jpg" alt="报错"></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/2.jpg" alt="方法一"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Cheer</span><span class="params">()</span><span class="comment">//这个就是函数头</span></span><br></pre></td></tr></table></figure>
+<p><img src="/../images/3.jpg" alt="方法2"><br>若上面的有错误，请各位大佬指出，谢谢</p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
+      </tags>
   </entry>
 </search>
