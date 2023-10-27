@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -189,17 +203,31 @@
       </tags>
   </entry>
   <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span><span class="comment">//这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span><span class="comment">//这里要注意，因为随机数是根据系统日期所产生的.</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	srand(time(<span class="number">0</span>));<span class="comment">//根据当前系统日期产生随机数</span></span><br><span class="line">	<span class="comment">//srand((unsigned) time(NULL));也可以这样写</span></span><br><span class="line">	<span class="type">int</span> num=rand()%<span class="number">201</span><span class="number">-100</span>;</span><br><span class="line">	<span class="comment">//产生一个-100到100之间的数</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;你产生的随机数是%d\n&quot;</span>,num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果<br>第一次<br><img src="/../images/1.jpg" alt="第一次运行结果">)<br>第二次<br><img src="/../images/2.jpg" alt="第二次运行结果"></p>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//产生一个-200到200之间的数</span></span><br><span class="line">	srand((<span class="type">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	<span class="comment">//rand()%(200-(-200)+1)+(-200)</span></span><br><span class="line">	<span class="comment">//rand()%401-200</span></span><br><span class="line">	<span class="type">int</span> num=rand()%<span class="number">401</span><span class="number">-200</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;随机数的结果为%d\n&quot;</span>,num);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
 ]]></content>
       <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
       </tags>
   </entry>
   <entry>
@@ -232,15 +260,5 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这篇文章中，我们介绍了如何创建和配置 Hexo 博客，以及如何使用一些常用的插件和主题来提升博客的体验。通过这篇文章，希望能够帮助读者快速上手 Hexo，并开始创建自己的博客。</p>
 <p>感谢您的阅读，希望您喜欢这篇文章！  </p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
-]]></content>
-      <tags>
-        <tag>VS报错</tag>
-      </tags>
   </entry>
 </search>
