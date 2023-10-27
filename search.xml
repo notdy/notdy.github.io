@@ -189,6 +189,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言中的随机数</title>
     <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
     <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
@@ -207,17 +221,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
+    <title>c语言里面的进制输出</title>
+    <url>//post/c%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA.html</url>
+    <content><![CDATA[<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">scanf_s(<span class="string">&quot;%d&quot;</span>,&amp;num);</span><br><span class="line"><span class="type">char</span> str[<span class="number">256</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">_itoa_s(num, str, <span class="number">64</span>,<span class="number">2</span>);<span class="comment">//这个64是代表着str的长度应该是，超过了str的长度就会报str附近的堆栈已经损坏</span></span><br><span class="line"><span class="comment">//num是进行转换的数</span></span><br><span class="line"><span class="comment">//str是存放结果的字符数组</span></span><br><span class="line"><span class="comment">//64我也不清楚，</span></span><br><span class="line"><span class="comment">//2是进制，后面的一次类推</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,str);</span><br><span class="line"></span><br><span class="line">_itoa_s(num, str, <span class="number">64</span>, <span class="number">8</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line"></span><br><span class="line">_itoa_s(num, str, <span class="number">64</span>, <span class="number">10</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line"></span><br><span class="line">_itoa_s(num, str, <span class="number">64</span>, <span class="number">16</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>很简单对吧，如果要将其结果输入或者输出至文本文件中呢?</p>
+<h1 id="输入输出至文本文件中"><a href="#输入输出至文本文件中" class="headerlink" title="输入输出至文本文件中"></a>输入输出至文本文件中</h1><p>首先介绍一下在cmd中 &lt; &gt;是什么意思，这个是重定向符号<br>例子  进制转换.exe &lt;1.txt 把1.txt中的内容输入至进制转换.exe中<br>进制转换.exe &gt; 1.txt 把进制转换.exe中的结果输出至1.txt</p>
+<p>ok,<br>例子<br>把十进制分别转换成B&#x2F;D&#x2F;O&#x2F;H并写入指定的文本文件中<br>win+r 进入cmd界面<br>切换到程序所在的目录，再切换到Debug文件夹下(这是VS2019,其他的我不清楚，只要能找到那个以exe结尾的可执行文件就行)<br>输入 程序名.exe &lt;1.txt<br>输出 程序名.exe &gt;2.txt<br>图片以后再补充</p>
 ]]></content>
       <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -226,6 +238,16 @@
     <content><![CDATA[]]></content>
       <tags>
         <tag>测试,123</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
       </tags>
   </entry>
   <entry>
@@ -250,16 +272,6 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这篇文章中，我们介绍了如何创建和配置 Hexo 博客，以及如何使用一些常用的插件和主题来提升博客的体验。通过这篇文章，希望能够帮助读者快速上手 Hexo，并开始创建自己的博客。</p>
 <p>感谢您的阅读，希望您喜欢这篇文章！  </p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
-]]></content>
-      <tags>
-        <tag>VS报错</tag>
-      </tags>
   </entry>
   <entry>
     <title>错误	C2371	Cheer 重定义；不同的基类型</title>
