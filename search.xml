@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -688,20 +702,6 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言中的随机数</title>
     <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
     <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
@@ -821,6 +821,16 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>c语言里面的进制输出</title>
     <url>//post/c%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA.html</url>
     <content><![CDATA[<pre class="line-numbers language-c" data-language="c"><code class="language-c">   int num &#x3D; 0;
@@ -849,16 +859,6 @@ return 0;
 ]]></content>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
-]]></content>
-      <tags>
-        <tag>VS报错</tag>
       </tags>
   </entry>
   <entry>
@@ -891,6 +891,23 @@ return 0;
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这篇文章中，我们介绍了如何创建和配置 Hexo 博客，以及如何使用一些常用的插件和主题来提升博客的体验。通过这篇文章，希望能够帮助读者快速上手 Hexo，并开始创建自己的博客。</p>
 <p>感谢您的阅读，希望您喜欢这篇文章！  </p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>java环境搭建 Ubuntu Linux</title>
+    <url>//post/java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu-Linux.html</url>
+    <content><![CDATA[<h1 id="jdk的安装和配置环境变量"><a href="#jdk的安装和配置环境变量" class="headerlink" title="jdk的安装和配置环境变量"></a>jdk的安装和配置环境变量</h1><ul>
+<li>Ubuntu 22.04 LTS</li>
+</ul>
+<h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
+<p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
+<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="https://img-blog.csdnimg.cn/2ad26025dac042a0a32035a5b214fa41.png" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="https://img-blog.csdnimg.cn/8f3caa75a4bd4e52964da0d8f13632e2.png" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
+<p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>错误	C2371	Cheer 重定义；不同的基类型</title>
