@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言中的随机数</title>
-    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
-    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
-<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
-#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
-int main()
-&#123;
-	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
-	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
-	int num&#x3D;rand()%201-100;
-	&#x2F;&#x2F;产生一个-100到100之间的数
-	printf(&quot;你产生的随机数是%d\n&quot;,num);
-&#125;</code></pre>
-<p>运行结果<br>第一次<br><img src="/../images/1.jpg" alt="第一次运行结果">)<br>第二次<br><img src="/../images/2.jpg" alt="第二次运行结果"></p>
-<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
-<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;time.h&gt;
-#include&lt;stdlib.h&gt;
-int main()
-&#123;
-	&#x2F;&#x2F;产生一个-200到200之间的数
-	srand((unsigned)time(NULL));
-	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
-	&#x2F;&#x2F;rand()%401-200
-	int num&#x3D;rand()%401-200;
-	printf(&quot;随机数的结果为%d\n&quot;,num);
-	return 0;
-&#125;
-</code></pre>
-<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
-<li>没有说清楚srand和time的细节部分</li>
-<li>rand细节部分</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>随机函数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -729,6 +688,47 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
+#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
+int main()
+&#123;
+	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
+	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
+	int num&#x3D;rand()%201-100;
+	&#x2F;&#x2F;产生一个-100到100之间的数
+	printf(&quot;你产生的随机数是%d\n&quot;,num);
+&#125;</code></pre>
+<p>运行结果<br>第一次<br><img src="/../images/1.jpg" alt="第一次运行结果">)<br>第二次<br><img src="/../images/2.jpg" alt="第二次运行结果"></p>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+&#123;
+	&#x2F;&#x2F;产生一个-200到200之间的数
+	srand((unsigned)time(NULL));
+	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
+	&#x2F;&#x2F;rand()%401-200
+	int num&#x3D;rand()%401-200;
+	printf(&quot;随机数的结果为%d\n&quot;,num);
+	return 0;
+&#125;
+</code></pre>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Poem</title>
     <url>//post/Poem.html</url>
     <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
@@ -821,28 +821,6 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>Windows远程连接Redis(Ubuntu)</title>
-    <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
-    <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>Windows版本:Win11 家庭版</li>
-<li>Linux版本:Ubuntu22.04</li>
-<li>Redis版本:Redis - 6.0.16</li>
-<li>IDE: IDEA 2022.2.3</li>
-<li>Redis:单机部署</li>
-</ul>
-<h1 id="配置redis-conf"><a href="#配置redis-conf" class="headerlink" title="配置redis.conf"></a>配置redis.conf</h1><p>修改redis.conf配置文件 ,不知道在哪里在终端输入下面的命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">find &#x2F; -name &#39;redis.conf&#39;</code></pre>
-<p>注释掉 bind 127.0.0.1这一行<br>设置客户端连接的密码 requirepass<br>关闭保护模式 protected-mode no</p>
-<h1 id="启动Redis"><a href="#启动Redis" class="headerlink" title="启动Redis"></a>启动Redis</h1><h2 id="开启redis服务"><a href="#开启redis服务" class="headerlink" title="开启redis服务"></a>开启redis服务</h2><p>指定redis.conf的文件位置</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-server .&#x2F;redis.conf</code></pre>
-<h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><p>在cmd中输入redis-cli -h address -a password –raw<br>–raw是防止中文乱码</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
     <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
     <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
@@ -881,6 +859,28 @@ return 0;
 ]]></content>
       <tags>
         <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows远程连接Redis(Ubuntu)</title>
+    <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
+    <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Windows版本:Win11 家庭版</li>
+<li>Linux版本:Ubuntu22.04</li>
+<li>Redis版本:Redis - 6.0.16</li>
+<li>IDE: IDEA 2022.2.3</li>
+<li>Redis:单机部署</li>
+</ul>
+<h1 id="配置redis-conf"><a href="#配置redis-conf" class="headerlink" title="配置redis.conf"></a>配置redis.conf</h1><p>修改redis.conf配置文件 ,不知道在哪里在终端输入下面的命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">find &#x2F; -name &#39;redis.conf&#39;</code></pre>
+<p>注释掉 bind 127.0.0.1这一行<br>设置客户端连接的密码 requirepass<br>关闭保护模式 protected-mode no</p>
+<h1 id="启动Redis"><a href="#启动Redis" class="headerlink" title="启动Redis"></a>启动Redis</h1><h2 id="开启redis服务"><a href="#开启redis服务" class="headerlink" title="开启redis服务"></a>开启redis服务</h2><p>指定redis.conf的文件位置</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-server .&#x2F;redis.conf</code></pre>
+<h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><p>在cmd中输入redis-cli -h address -a password –raw<br>–raw是防止中文乱码</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -927,6 +927,53 @@ return 0;
 ]]></content>
       <tags>
         <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot访问请求404的原因</title>
+    <url>//post/springboot%E8%AE%BF%E9%97%AE%E8%AF%B7%E6%B1%82404%E7%9A%84%E5%8E%9F%E5%9B%A0.html</url>
+    <content><![CDATA[<blockquote>
+<p>是记录，可能出现错误</p>
+</blockquote>
+<p>可能出现的原因<br>1.你请求的URL路径不对,比如说你请求的路径是&#x2F;usr&#x2F;list,GET方法,但是你UserController上面的RequestMapping是这个样子:@RequestMapping(“user”)，有可能哈<br>2.前端的请求时GET方法，后端对应的处理函数的方法是非GET方法<br>3.Controller和RestController注解混用了，两个中删除一个试试<br>4.访问的是静态资源，那么查看是否配置好了静态资源，就是把静态资源放到Resources下面的static文件夹中，也可以通过配置类来自定义存放路径<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>下面是通过配置类的方式，来配置静态资源存放的路径<br>我的静态资源是直接放在Resources下面的，新建一个类，类名随意</p>
+<blockquote>
+<p>继承WebMvcConfigurationSupport<br>重写addResourceHandlers方法<br>在类上面加上@Configuration注解</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
+@Slf4j
+public class WebMvcConfig extends WebMvcConfigurationSupport &#123;
+    &#x2F;**
+     * 配置静态资源映射
+     *
+     * @param registry
+     **&#x2F;
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) &#123;
+        log.info(&quot;开始进行静态资源映射&quot;);
+        &#x2F;&#x2F;将路径中包含backend的请求映射到backend文件夹下
+
+&#x2F;&#x2F;这句话的意思是，只要请求的是&#x2F;backend下面的文件都映射到Resources下面的backend文件夹下面,classpath:
+        registry.addResourceHandler(&quot;&#x2F;backend&#x2F;**&quot;).addResourceLocations(&quot;classpath:&#x2F;backend&#x2F;&quot;);
+&#x2F;&#x2F;上同        
+        registry.addResourceHandler(&quot;&#x2F;front&#x2F;**&quot;).addResourceLocations(&quot;classpath:&#x2F;front&#x2F;&quot;);
+    &#125;
+    &#125;</code></pre>
+
+
+<p>5.你的Controller类没有被扫描到，这种情况一般是启动类在一个包里面<br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>解决办法:</p>
+<ol>
+<li>把你的启动类从包里面拿出来，放到外面，如图所示<br><img src="/../images/102.jpg"></li>
+<li>用和MapperScan和scanBasePackages来指明需要扫描的包<br> 如图所示<br> <img src="/../images/999.jpg" alt="在这里插入图片描述"></li>
+<li>项目中有多个SpringBootServletInitializer子类<br>此类问题表现是，项目按模块划分，多个模块内包含Controller。在开发调试阶段正常，单独运行每个模块也正常；使用tomcat部署后，总会随机出现一些模块的Controller访问不了的情况。<br>这种情况，多是因为每个模块都创建了SpringBootServletInitailizer子类。<br>解决办法就是只保留入口模块的SpringBootServletInitialzer子类即可<br>补充:<br>若是线上部署阶段排错思路<br>1.确定资源确实是存在的<br>2.随机测试几个接口，看看是否都是404。</li>
+</ol>
+<ul>
+<li>如果都是404，很可能是nginx配置错误</li>
+<li>如果部分404，且是按模块404，查看项目中是否有多个SpringBootServletInitializer子类</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>SpringBoot</tag>
       </tags>
   </entry>
   <entry>
