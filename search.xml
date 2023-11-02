@@ -729,6 +729,20 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -807,30 +821,6 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
-]]></content>
-      <tags>
-        <tag>VS报错</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows远程连接Redis(Ubuntu)</title>
     <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
     <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
@@ -853,11 +843,13 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>修改试试</title>
-    <url>//post/first-blog.html</url>
-    <content><![CDATA[]]></content>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
       <tags>
-        <tag>测试,123</tag>
+        <tag>VS报错</tag>
       </tags>
   </entry>
   <entry>
@@ -892,6 +884,14 @@ return 0;
       </tags>
   </entry>
   <entry>
+    <title>修改试试</title>
+    <url>//post/first-blog.html</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>测试,123</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>//post/hello-world.html</url>
     <content><![CDATA[<h1 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>介绍性的东西</p>
@@ -915,23 +915,6 @@ return 0;
 ]]></content>
   </entry>
   <entry>
-    <title>java环境搭建 Ubuntu Linux</title>
-    <url>//post/java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu-Linux.html</url>
-    <content><![CDATA[<h1 id="jdk的安装和配置环境变量"><a href="#jdk的安装和配置环境变量" class="headerlink" title="jdk的安装和配置环境变量"></a>jdk的安装和配置环境变量</h1><ul>
-<li>Ubuntu 22.04 LTS</li>
-</ul>
-<h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
-<p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
-<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="https://img-blog.csdnimg.cn/2ad26025dac042a0a32035a5b214fa41.png" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="https://img-blog.csdnimg.cn/8f3caa75a4bd4e52964da0d8f13632e2.png" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
-<p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>错误	C2371	Cheer 重定义；不同的基类型</title>
     <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
     <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
@@ -944,6 +927,23 @@ return 0;
 ]]></content>
       <tags>
         <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java环境搭建 Ubuntu Linux</title>
+    <url>//post/java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu-Linux.html</url>
+    <content><![CDATA[<h1 id="jdk的安装和配置环境变量"><a href="#jdk的安装和配置环境变量" class="headerlink" title="jdk的安装和配置环境变量"></a>jdk的安装和配置环境变量</h1><ul>
+<li>Ubuntu 22.04 LTS</li>
+</ul>
+<h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
+<p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
+<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
+<p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
