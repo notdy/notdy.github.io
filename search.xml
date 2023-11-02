@@ -743,6 +743,41 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu22.04搭建mysql主从复制</title>
+    <url>//post/Ubuntu22-04%E6%90%AD%E5%BB%BAmysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6.html</url>
+    <content><![CDATA[<blockquote>
+<p>记录哈，这个需要两台服务器，每台服务器上面都要安装mysql，若是没有安装，请分别在两台服务器上面运行下面的命令<br>sudo apt install mysql-server</p>
+</blockquote>
+<p>引用<br><a href="https://blog.csdn.net/qq_45418837/article/details/132065474">Ubuntu下的mysql8.0忘记密码怎么办?</a></p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Ubuntu 22.04</li>
+<li>主机:192.168.164.134</li>
+<li>从机:192.168.164.136</li>
+<li>两台服务器的mysql配置文件路径:&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<blockquote>
+<p>若是不知道在哪里运行下面的命令<br>find &#x2F; -name mysqld.cnf</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="主机的配置"><a href="#主机的配置" class="headerlink" title="主机的配置"></a>主机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>修改成下面的样子,注意server-id不一定要等于1，只要服务器之间的server-id是不一样的就好<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>若是远程连接不上mysql服务器可以把&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf文件中的<br>bind-address&#x3D;127.0.0.1<br>mysqlx-bind-address&#x3D;127.0.0.1，这两行注释掉<br><img src="/../images/187.jpg" alt="在这里插入图片描述"><br>完成后执行在终端中执行命令<br>systemctl restart mysql重启mysql服务</p>
+<p>输入mysql -uroot进入到mysql中，注意我的没有设置密码，若你有密码需要加上-p后面写的你密码</p>
+<p>输入下面的命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CREATE USER &#39;remote&#39;@&#39;%&#39; IDENTIFIED BY &#39;remote&#39;;
+     GRANT REPLICATION SLAVE ON *.* TO &#39;remote&#39;@&#39;%&#39;;
+     FLUSH PRIVILEGES;</code></pre>
+<p>在mysql中输入下面命令show master status;<br><img src="/../images/123.jpg" alt="在这里插入图片描述"><br>之后不要动主机</p>
+<h1 id="从机的配置"><a href="#从机的配置" class="headerlink" title="从机的配置"></a>从机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>增加或注释一句server-id &#x3D;2,保存退出<br><img src="/../images/12.jpg" alt="在这里插入图片描述"><br>重启mysql服务 systemctl restart mysql<br>输入mysql -uroot  -p你的密码进入到mysql当中<br>输入下面命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">stop slave;
+change master to master_host&#x3D;&#39;192.168.164.134&#39;,master_user&#x3D;&#39;remote&#39;,master_password&#x3D;&#39;remote&#39;,master_log_file&#x3D;&#39;mysql-bin.000013&#39;,master_log_pos&#x3D;157,get_master_public_key&#x3D;1;
+start slave;
+show slave status\G</code></pre>
+<p>若show slave status\G的结果是如图片所示即可<br><img src="/../images/987.jpg" alt="在这里插入图片描述"><br>验证:<br>主机用root身份登录<br>从机用root身份登录<br>在主机中新建一个数据库，看看从机中是否存在相同的，若有则配置成功，若没有找原因，原因及其解决办法我去翻翻历史记录，看看能不能找到</p>
+]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -831,6 +866,28 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>Windows远程连接Redis(Ubuntu)</title>
+    <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
+    <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Windows版本:Win11 家庭版</li>
+<li>Linux版本:Ubuntu22.04</li>
+<li>Redis版本:Redis - 6.0.16</li>
+<li>IDE: IDEA 2022.2.3</li>
+<li>Redis:单机部署</li>
+</ul>
+<h1 id="配置redis-conf"><a href="#配置redis-conf" class="headerlink" title="配置redis.conf"></a>配置redis.conf</h1><p>修改redis.conf配置文件 ,不知道在哪里在终端输入下面的命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">find &#x2F; -name &#39;redis.conf&#39;</code></pre>
+<p>注释掉 bind 127.0.0.1这一行<br>设置客户端连接的密码 requirepass<br>关闭保护模式 protected-mode no</p>
+<h1 id="启动Redis"><a href="#启动Redis" class="headerlink" title="启动Redis"></a>启动Redis</h1><h2 id="开启redis服务"><a href="#开启redis服务" class="headerlink" title="开启redis服务"></a>开启redis服务</h2><p>指定redis.conf的文件位置</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-server .&#x2F;redis.conf</code></pre>
+<h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><p>在cmd中输入redis-cli -h address -a password –raw<br>–raw是防止中文乱码</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>c语言里面的进制输出</title>
     <url>//post/c%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA.html</url>
     <content><![CDATA[<pre class="line-numbers language-c" data-language="c"><code class="language-c">   int num &#x3D; 0;
@@ -859,28 +916,6 @@ return 0;
 ]]></content>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows远程连接Redis(Ubuntu)</title>
-    <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
-    <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>Windows版本:Win11 家庭版</li>
-<li>Linux版本:Ubuntu22.04</li>
-<li>Redis版本:Redis - 6.0.16</li>
-<li>IDE: IDEA 2022.2.3</li>
-<li>Redis:单机部署</li>
-</ul>
-<h1 id="配置redis-conf"><a href="#配置redis-conf" class="headerlink" title="配置redis.conf"></a>配置redis.conf</h1><p>修改redis.conf配置文件 ,不知道在哪里在终端输入下面的命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">find &#x2F; -name &#39;redis.conf&#39;</code></pre>
-<p>注释掉 bind 127.0.0.1这一行<br>设置客户端连接的密码 requirepass<br>关闭保护模式 protected-mode no</p>
-<h1 id="启动Redis"><a href="#启动Redis" class="headerlink" title="启动Redis"></a>启动Redis</h1><h2 id="开启redis服务"><a href="#开启redis服务" class="headerlink" title="开启redis服务"></a>开启redis服务</h2><p>指定redis.conf的文件位置</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">redis-server .&#x2F;redis.conf</code></pre>
-<h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><p>在cmd中输入redis-cli -h address -a password –raw<br>–raw是防止中文乱码</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -915,18 +950,20 @@ return 0;
 ]]></content>
   </entry>
   <entry>
-    <title>错误	C2371	Cheer 重定义；不同的基类型</title>
-    <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
-    <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
-<p>问题区: <img src="/../images/1.jpg" alt="报错"></p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/2.jpg" alt="方法一"></p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">void Cheer()&#x2F;&#x2F;这个就是函数头</code></pre>
-<p><img src="/../images/3.jpg" alt="方法2"><br>若上面的有错误，请各位大佬指出，谢谢</p>
+    <title>java环境搭建 Ubuntu Linux</title>
+    <url>//post/java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu-Linux.html</url>
+    <content><![CDATA[<h1 id="jdk的安装和配置环境变量"><a href="#jdk的安装和配置环境变量" class="headerlink" title="jdk的安装和配置环境变量"></a>jdk的安装和配置环境变量</h1><ul>
+<li>Ubuntu 22.04 LTS</li>
+</ul>
+<h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
+<p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
+<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
+<p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
 ]]></content>
       <tags>
-        <tag>VS报错</tag>
+        <tag>Linux</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -977,20 +1014,18 @@ public class WebMvcConfig extends WebMvcConfigurationSupport &#123;
       </tags>
   </entry>
   <entry>
-    <title>java环境搭建 Ubuntu Linux</title>
-    <url>//post/java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu-Linux.html</url>
-    <content><![CDATA[<h1 id="jdk的安装和配置环境变量"><a href="#jdk的安装和配置环境变量" class="headerlink" title="jdk的安装和配置环境变量"></a>jdk的安装和配置环境变量</h1><ul>
-<li>Ubuntu 22.04 LTS</li>
-</ul>
-<h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
-<p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
-<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
-<p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
+    <title>错误	C2371	Cheer 重定义；不同的基类型</title>
+    <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
+    <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
+<p>问题区: <img src="/../images/1.jpg" alt="报错"></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/2.jpg" alt="方法一"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">void Cheer()&#x2F;&#x2F;这个就是函数头</code></pre>
+<p><img src="/../images/3.jpg" alt="方法2"><br>若上面的有错误，请各位大佬指出，谢谢</p>
 ]]></content>
       <tags>
-        <tag>Linux</tag>
-        <tag>Java</tag>
+        <tag>VS报错</tag>
       </tags>
   </entry>
 </search>
