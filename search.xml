@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
+#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
+int main()
+&#123;
+	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
+	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
+	int num&#x3D;rand()%201-100;
+	&#x2F;&#x2F;产生一个-100到100之间的数
+	printf(&quot;你产生的随机数是%d\n&quot;,num);
+&#125;</code></pre>
+<p>运行结果<br>第一次,下面是控制台输出</p>
+<blockquote>
+<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
+</blockquote>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+&#123;
+	&#x2F;&#x2F;产生一个-200到200之间的数
+	srand((unsigned)time(NULL));
+	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
+	&#x2F;&#x2F;rand()%401-200
+	int num&#x3D;rand()%401-200;
+	printf(&quot;随机数的结果为%d\n&quot;,num);
+	return 0;
+&#125;
+</code></pre>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -688,96 +746,6 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>C语言中的随机数</title>
-    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
-    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
-<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
-#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
-int main()
-&#123;
-	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
-	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
-	int num&#x3D;rand()%201-100;
-	&#x2F;&#x2F;产生一个-100到100之间的数
-	printf(&quot;你产生的随机数是%d\n&quot;,num);
-&#125;</code></pre>
-<p>运行结果<br>第一次<br><img src="/../images/1.jpg" alt="第一次运行结果">)<br>第二次<br><img src="/../images/2.jpg" alt="第二次运行结果"></p>
-<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
-<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;time.h&gt;
-#include&lt;stdlib.h&gt;
-int main()
-&#123;
-	&#x2F;&#x2F;产生一个-200到200之间的数
-	srand((unsigned)time(NULL));
-	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
-	&#x2F;&#x2F;rand()%401-200
-	int num&#x3D;rand()%401-200;
-	printf(&quot;随机数的结果为%d\n&quot;,num);
-	return 0;
-&#125;
-</code></pre>
-<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
-<li>没有说清楚srand和time的细节部分</li>
-<li>rand细节部分</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>随机函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu22.04搭建mysql主从复制</title>
-    <url>//post/Ubuntu22-04%E6%90%AD%E5%BB%BAmysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6.html</url>
-    <content><![CDATA[<blockquote>
-<p>记录哈，这个需要两台服务器，每台服务器上面都要安装mysql，若是没有安装，请分别在两台服务器上面运行下面的命令<br>sudo apt install mysql-server</p>
-</blockquote>
-<p>引用<br><a href="https://blog.csdn.net/qq_45418837/article/details/132065474">Ubuntu下的mysql8.0忘记密码怎么办?</a></p>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>Ubuntu 22.04</li>
-<li>主机:192.168.164.134</li>
-<li>从机:192.168.164.136</li>
-<li>两台服务器的mysql配置文件路径:&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<blockquote>
-<p>若是不知道在哪里运行下面的命令<br>find &#x2F; -name mysqld.cnf</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="主机的配置"><a href="#主机的配置" class="headerlink" title="主机的配置"></a>主机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>修改成下面的样子,注意server-id不一定要等于1，只要服务器之间的server-id是不一样的就好<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>若是远程连接不上mysql服务器可以把&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf文件中的<br>bind-address&#x3D;127.0.0.1<br>mysqlx-bind-address&#x3D;127.0.0.1，这两行注释掉<br><img src="/../images/187.jpg" alt="在这里插入图片描述"><br>完成后执行在终端中执行命令<br>systemctl restart mysql重启mysql服务</p>
-<p>输入mysql -uroot进入到mysql中，注意我的没有设置密码，若你有密码需要加上-p后面写的你密码</p>
-<p>输入下面的命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CREATE USER &#39;remote&#39;@&#39;%&#39; IDENTIFIED BY &#39;remote&#39;;
-     GRANT REPLICATION SLAVE ON *.* TO &#39;remote&#39;@&#39;%&#39;;
-     FLUSH PRIVILEGES;</code></pre>
-<p>在mysql中输入下面命令show master status;<br><img src="/../images/123.jpg" alt="在这里插入图片描述"><br>之后不要动主机</p>
-<h1 id="从机的配置"><a href="#从机的配置" class="headerlink" title="从机的配置"></a>从机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>增加或注释一句server-id &#x3D;2,保存退出<br><img src="/../images/12.jpg" alt="在这里插入图片描述"><br>重启mysql服务 systemctl restart mysql<br>输入mysql -uroot  -p你的密码进入到mysql当中<br>输入下面命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">stop slave;
-change master to master_host&#x3D;&#39;192.168.164.134&#39;,master_user&#x3D;&#39;remote&#39;,master_password&#x3D;&#39;remote&#39;,master_log_file&#x3D;&#39;mysql-bin.000013&#39;,master_log_pos&#x3D;157,get_master_public_key&#x3D;1;
-start slave;
-show slave status\G</code></pre>
-<p>若show slave status\G的结果是如图片所示即可<br><img src="/../images/987.jpg" alt="在这里插入图片描述"><br>验证:<br>主机用root身份登录<br>从机用root身份登录<br>在主机中新建一个数据库，看看从机中是否存在相同的，若有则配置成功，若没有找原因，原因及其解决办法我去翻翻历史记录，看看能不能找到</p>
-]]></content>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -856,9 +824,44 @@ show slave status\G</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu22.04搭建mysql主从复制</title>
+    <url>//post/Ubuntu22-04%E6%90%AD%E5%BB%BAmysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6.html</url>
+    <content><![CDATA[<blockquote>
+<p>记录哈，这个需要两台服务器，每台服务器上面都要安装mysql，若是没有安装，请分别在两台服务器上面运行下面的命令<br>sudo apt install mysql-server</p>
+</blockquote>
+<p>引用<br><a href="https://blog.csdn.net/qq_45418837/article/details/132065474">Ubuntu下的mysql8.0忘记密码怎么办?</a></p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Ubuntu 22.04</li>
+<li>主机:192.168.164.134</li>
+<li>从机:192.168.164.136</li>
+<li>两台服务器的mysql配置文件路径:&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<blockquote>
+<p>若是不知道在哪里运行下面的命令<br>find &#x2F; -name mysqld.cnf</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="主机的配置"><a href="#主机的配置" class="headerlink" title="主机的配置"></a>主机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>修改成下面的样子,注意server-id不一定要等于1，只要服务器之间的server-id是不一样的就好<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>若是远程连接不上mysql服务器可以把&#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf文件中的<br>bind-address&#x3D;127.0.0.1<br>mysqlx-bind-address&#x3D;127.0.0.1，这两行注释掉<br><img src="/../images/187.jpg" alt="在这里插入图片描述"><br>完成后执行在终端中执行命令<br>systemctl restart mysql重启mysql服务</p>
+<p>输入mysql -uroot进入到mysql中，注意我的没有设置密码，若你有密码需要加上-p后面写的你密码</p>
+<p>输入下面的命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CREATE USER &#39;remote&#39;@&#39;%&#39; IDENTIFIED BY &#39;remote&#39;;
+     GRANT REPLICATION SLAVE ON *.* TO &#39;remote&#39;@&#39;%&#39;;
+     FLUSH PRIVILEGES;</code></pre>
+<p>在mysql中输入下面命令show master status;<br><img src="/../images/123.jpg" alt="在这里插入图片描述"><br>之后不要动主机</p>
+<h1 id="从机的配置"><a href="#从机的配置" class="headerlink" title="从机的配置"></a>从机的配置</h1><p>vim &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf<br>增加或注释一句server-id &#x3D;2,保存退出<br><img src="/../images/12.jpg" alt="在这里插入图片描述"><br>重启mysql服务 systemctl restart mysql<br>输入mysql -uroot  -p你的密码进入到mysql当中<br>输入下面命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">stop slave;
+change master to master_host&#x3D;&#39;192.168.164.134&#39;,master_user&#x3D;&#39;remote&#39;,master_password&#x3D;&#39;remote&#39;,master_log_file&#x3D;&#39;mysql-bin.000013&#39;,master_log_pos&#x3D;157,get_master_public_key&#x3D;1;
+start slave;
+show slave status\G</code></pre>
+<p>若show slave status\G的结果是如图片所示即可<br><img src="/../images/987.jpg" alt="在这里插入图片描述"><br>验证:<br>主机用root身份登录<br>从机用root身份登录<br>在主机中新建一个数据库，看看从机中是否存在相同的，若有则配置成功，若没有找原因，原因及其解决办法我去翻翻历史记录，看看能不能找到</p>
+]]></content>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
     <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/1.jpg" alt="选择"><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/3.jpg" alt="修改"><br><img src="/../images/4.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/20200607202928750.jpg" alt="选择"><br><img src="/../images/20200607203006912.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/20200607202153355.jpg" alt="修改"><br><img src="/../images/20200607202319969.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
 <p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
 ]]></content>
       <tags>
@@ -958,7 +961,7 @@ return 0;
 <h2 id="使用apt"><a href="#使用apt" class="headerlink" title="使用apt"></a>使用apt</h2><p>这个最简单</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt install default-jdk</code></pre>
 <p>若是安装成功了在终端输入java -version来查看是否安装成功</p>
-<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="/../images/2.jpg" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
+<h2 id="使用官网下载的jdk包-离线安装"><a href="#使用官网下载的jdk包-离线安装" class="headerlink" title="使用官网下载的jdk包(离线安装)"></a>使用官网下载的jdk包(离线安装)</h2><p>直接在百度上搜索jdk，选择图片这个<br><img src="/../images/2ad26025dac042a0a32035a5b214fa41.png" alt="在这里插入图片描述"><br>网址:<a href="https://www.oracle.com/java/technologies/downloads/">jdk下载网址</a><br><img src="/../images/8f3caa75a4bd4e52964da0d8f13632e2.png" alt="在这里插入图片描述"><br>在linux中使用uname -m查看<br>若上面的命令结果是arm就选择带有arm的，反之选择x64的<br>切换到包所在的目录，打开终端，输入tar -zxf 包名<br>切换到解压后的目录当中，复制该路径，我这里是&#x2F;usr&#x2F;java&#x2F;jdk<br>打开终端输入vim &#x2F;etc&#x2F;profile,输入i进入插入模式<br>在尾部追加<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;java&#x2F;jdk<br>export CLASSPATH&#x3D;$:CLASSPATH:$JAVA_HOME&#x2F;lib&#x2F;<br>export PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin</p>
 <p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
 ]]></content>
       <tags>
@@ -972,7 +975,7 @@ return 0;
     <content><![CDATA[<blockquote>
 <p>是记录，可能出现错误</p>
 </blockquote>
-<p>可能出现的原因<br>1.你请求的URL路径不对,比如说你请求的路径是&#x2F;usr&#x2F;list,GET方法,但是你UserController上面的RequestMapping是这个样子:@RequestMapping(“user”)，有可能哈<br>2.前端的请求时GET方法，后端对应的处理函数的方法是非GET方法<br>3.Controller和RestController注解混用了，两个中删除一个试试<br>4.访问的是静态资源，那么查看是否配置好了静态资源，就是把静态资源放到Resources下面的static文件夹中，也可以通过配置类来自定义存放路径<br><img src="/../images/1.jpg" alt="在这里插入图片描述"><br>下面是通过配置类的方式，来配置静态资源存放的路径<br>我的静态资源是直接放在Resources下面的，新建一个类，类名随意</p>
+<p>可能出现的原因<br>1.你请求的URL路径不对,比如说你请求的路径是&#x2F;usr&#x2F;list,GET方法,但是你UserController上面的RequestMapping是这个样子:@RequestMapping(“user”)，有可能哈<br>2.前端的请求时GET方法，后端对应的处理函数的方法是非GET方法<br>3.Controller和RestController注解混用了，两个中删除一个试试<br>4.访问的是静态资源，那么查看是否配置好了静态资源，就是把静态资源放到Resources下面的static文件夹中，也可以通过配置类来自定义存放路径<br><img src="/../images/f8a50d4efbe9431d95f030f3c88acfc9.png" alt="在这里插入图片描述"><br>下面是通过配置类的方式，来配置静态资源存放的路径<br>我的静态资源是直接放在Resources下面的，新建一个类，类名随意</p>
 <blockquote>
 <p>继承WebMvcConfigurationSupport<br>重写addResourceHandlers方法<br>在类上面加上@Configuration注解</p>
 </blockquote>
@@ -1017,12 +1020,12 @@ public class WebMvcConfig extends WebMvcConfigurationSupport &#123;
     <title>错误	C2371	Cheer 重定义；不同的基类型</title>
     <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
     <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
-<p>问题区: <img src="/../images/1.jpg" alt="报错"></p>
+<p>问题区: <img src="/../images/20200704155605706.jpg" alt="报错"></p>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/2.jpg" alt="方法一"></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/20200704155947750.jpg" alt="方法一"></p>
 <h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">void Cheer()&#x2F;&#x2F;这个就是函数头</code></pre>
-<p><img src="/../images/3.jpg" alt="方法2"><br>若上面的有错误，请各位大佬指出，谢谢</p>
+<p><img src="/../images/20200704160345300.jpg" alt="方法一"><br>若上面的有错误，请各位大佬指出，谢谢</p>
 ]]></content>
       <tags>
         <tag>VS报错</tag>
