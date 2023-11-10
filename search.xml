@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言中的随机数</title>
-    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
-    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
-<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
-#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
-int main()
-&#123;
-	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
-	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
-	int num&#x3D;rand()%201-100;
-	&#x2F;&#x2F;产生一个-100到100之间的数
-	printf(&quot;你产生的随机数是%d\n&quot;,num);
-&#125;</code></pre>
-<p>运行结果<br>第一次,下面是控制台输出</p>
-<blockquote>
-<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
-</blockquote>
-<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
-<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;time.h&gt;
-#include&lt;stdlib.h&gt;
-int main()
-&#123;
-	&#x2F;&#x2F;产生一个-200到200之间的数
-	srand((unsigned)time(NULL));
-	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
-	&#x2F;&#x2F;rand()%401-200
-	int num&#x3D;rand()%401-200;
-	printf(&quot;随机数的结果为%d\n&quot;,num);
-	return 0;
-&#125;
-</code></pre>
-<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
-<li>没有说清楚srand和time的细节部分</li>
-<li>rand细节部分</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>随机函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -746,6 +688,64 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
+#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
+int main()
+&#123;
+	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
+	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
+	int num&#x3D;rand()%201-100;
+	&#x2F;&#x2F;产生一个-100到100之间的数
+	printf(&quot;你产生的随机数是%d\n&quot;,num);
+&#125;</code></pre>
+<p>运行结果<br>第一次,下面是控制台输出</p>
+<blockquote>
+<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
+</blockquote>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+&#123;
+	&#x2F;&#x2F;产生一个-200到200之间的数
+	srand((unsigned)time(NULL));
+	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
+	&#x2F;&#x2F;rand()%401-200
+	int num&#x3D;rand()%401-200;
+	printf(&quot;随机数的结果为%d\n&quot;,num);
+	return 0;
+&#125;
+</code></pre>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -821,6 +821,86 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       <tags>
         <tag>particle skills</tag>
         <tag>Search skill</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringWeb踩坑记录</title>
+    <url>//post/SpringWeb%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html</url>
+    <content><![CDATA[<h1 id="解决Maven依赖下载奇慢的问题-服务器在国外，很慢的"><a href="#解决Maven依赖下载奇慢的问题-服务器在国外，很慢的" class="headerlink" title="解决Maven依赖下载奇慢的问题,服务器在国外，很慢的"></a>解决Maven依赖下载奇慢的问题,服务器在国外，很慢的</h1><p>在IDEA中按两次shift键，输入settings.xml,选择Create<br><img src="/../images/0113cb3af99a4839b131337b1f9afa71.png" alt="在这里插入图片描述"><br>粘贴以下内容到文件中</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;
+&lt;settings xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;SETTINGS&#x2F;1.0.0&quot;
+          xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;
+          xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;SETTINGS&#x2F;1.0.0
+                          https:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;settings-1.0.0.xsd&quot;&gt;
+ 
+    &lt;mirrors&gt;
+    
+        &lt;mirror&gt;
+            &lt;id&gt;alimaven&lt;&#x2F;id&gt;
+            &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;
+            &lt;!-- https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&#x2F; --&gt;
+            &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;
+            &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;
+        &lt;&#x2F;mirror&gt;
+    &lt;&#x2F;mirrors&gt;
+&lt;&#x2F;settings&gt;</code></pre>
+<p>重启IDEA，或者再次创建一个项目，下载速度很快。</p>
+<h1 id="java-无效的目标发行版"><a href="#java-无效的目标发行版" class="headerlink" title="java:无效的目标发行版"></a>java:无效的目标发行版</h1><p>原因都知道哈，版本不对<br>IDEA-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Compiler-&gt;Java Compiler<br><img src="/../images/5d847efec6634fa0ac649a22e25ae47c.png" alt="在这里插入图片描述"><br>还有两个地方<br>File-&gt;Project Structure-&gt;Project<br><img src="/../images/eaf65c98ae504be58c4155a689f22ce6.png" alt="在这里插入图片描述"><br>File-&gt;Project Structure-&gt;Modules<br><img src="/../images/71a6aba9570045b6a802b3e361c43260.png" alt="在这里插入图片描述"><br>如果还不行，将pom.xml的的java.version改成你上述图片中选择的版本即可</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;properties&gt;
+	&lt;java.version&gt;19&lt;&#x2F;java.version&gt;
+&lt;&#x2F;properties&gt;</code></pre>
+
+<h1 id="List转换成Page时抛出ClassCastException"><a href="#List转换成Page时抛出ClassCastException" class="headerlink" title="List转换成Page时抛出ClassCastException"></a>List转换成Page时抛出ClassCastException</h1><p>报错信息:</p>
+<pre class="line-numbers language-none"><code class="language-none">class java.util.ArrayList cannot be cast to class com.github.pagehelper.Page (java.util.ArrayList is in module java.base of loader &#39;bootstrap&#39;; com.github.pagehelper.Page is in unnamed module of loader &#39;app&#39;)</code></pre>
+<p>原先代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+PageHelper.startPage(page,pageSize);
+List&lt;Emp&gt; empList &#x3D; empMapper.list(name, gender, begin, end);
+Page&lt;Emp&gt; emp &#x3D; (Page&lt;Emp&gt;)empList;&#x2F;&#x2F;这里出现了异常
+PageBean pageBean &#x3D; new PageBean(emp.getTotal(), emp.getResult());</code></pre>
+<p>解决办法，将代码修改成下面的，原因不知道</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+Page&lt;Emp&gt; emp &#x3D; PageHelper.startPage(page,pageSize);
+List&lt;Emp&gt; empList &#x3D; empMapper.list(name, gender, begin, end);
+emp.addAll(empList);
+PageBean pageBean &#x3D; new PageBean(emp.getTotal(), emp.getResult());</code></pre>
+<p>还有一个解决办法，把PageHelper的版本换成最新版，在pom.xml文件中改</p>
+<h1 id="将静态页面加入到static文件夹从浏览器访问不到"><a href="#将静态页面加入到static文件夹从浏览器访问不到" class="headerlink" title="将静态页面加入到static文件夹从浏览器访问不到"></a>将静态页面加入到static文件夹从浏览器访问不到</h1><p>静态html加入到static文件夹后，从localhost:8080:&#x2F;content.html访问不到，<br>解决办法:重新编译staic模块<br><img src="/../images/ebb7f482ba7d48de9272af751ecb5038.png" alt="在这里插入图片描述"></p>
+<h1 id="The-field-image-exceeds-its-maximum-permitted-size-of-1048576-bytes"><a href="#The-field-image-exceeds-its-maximum-permitted-size-of-1048576-bytes" class="headerlink" title="The field image exceeds its maximum permitted size of 1048576 bytes."></a>The field image exceeds its maximum permitted size of 1048576 bytes.</h1><p>原因:上传的文件太大了<br>解决办法:调整最大限制<br>在application.property中输入下面的,即可</p>
+<pre class="line-numbers language-none"><code class="language-none"># 上传的最大文件大小必须小于100MB
+spring.servlet.multipart.max-file-size&#x3D;100MB
+# 上传多个文件的时候，单个文件大小不得超过20MB
+spring.servlet.multipart.max-request-size&#x3D;20MB
+</code></pre>
+
+<h1 id="io-jsonwebtoken-UnsupportedJwtException-Signed-Claims-JWSs-are-not-supported"><a href="#io-jsonwebtoken-UnsupportedJwtException-Signed-Claims-JWSs-are-not-supported" class="headerlink" title="io.jsonwebtoken.UnsupportedJwtException: Signed Claims JWSs are not supported."></a>io.jsonwebtoken.UnsupportedJwtException: Signed Claims JWSs are not supported.</h1><p>将Jwts.parser().parseClaimsJwt(str)改成Jwts.parser().parseClaimsJws(str)即可</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Claims free &#x3D; Jwts.parser().
+        setSigningKey(&quot;free&quot;).&#x2F;&#x2F;设置密钥
+        parseClaimsJws(str).
+        getBody();
+System.out.println(free);</code></pre>
+
+<h1 id="java-time-format-DateTimeParseException-Text-‘2023-5-11-11-12-13’-could-not-be-parsed-at-index-5"><a href="#java-time-format-DateTimeParseException-Text-‘2023-5-11-11-12-13’-could-not-be-parsed-at-index-5" class="headerlink" title="java.time.format.DateTimeParseException: Text ‘2023-5-11 11:12:13’ could not be parsed at index 5"></a>java.time.format.DateTimeParseException: Text ‘2023-5-11 11:12:13’ could not be parsed at index 5</h1><p>@DateTimeFormat(pattern&#x3D;”@DateTimeFormat(pattern &#x3D;”yyyy-MM-dd HH:mm:ss””)中的MM是两个<br>但是字符串中的月份是一位，解决办法把2023-5-11改成2023-05-11即可，这个纯属是粗心大意了</p>
+<h1 id="IDEA创建Maven项目后没有src目录"><a href="#IDEA创建Maven项目后没有src目录" class="headerlink" title="IDEA创建Maven项目后没有src目录"></a>IDEA创建Maven项目后没有src目录</h1><p>IDEA版本号:2022.2.5<br>解决办法:File-&gt;Settings,搜索Runner这个选项,在VM Options中加入-Darchetype&#x3D;Internal，apply-&gt;OK,<br>出现原因暂时不知道</p>
+<h1 id="Unknown-database-xxx"><a href="#Unknown-database-xxx" class="headerlink" title="Unknown database xxx"></a>Unknown database xxx</h1><p>排错思路:</p>
+<ol>
+<li>数据库是否建好了?</li>
+<li>数据库名称是否写对了</li>
+<li>配置文件中账户与密码驱动是否写对了</li>
+<li>mysql服务是否开启了</li>
+<li>端口号是否被占用了<br>对应的措施<br>是否有数据库和数据库名称这个可以自己检查出来，这里主要是记录后面几种的做法<br>若是yml格式的，你的password可能需要加个引号<br><img src="/../images/4edbaa41b97c4140a2b68831000b1a1f.png" alt="在这里插入图片描述"><br>驱动的话将版本改为最新版本试试</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;dependency&gt;
+  &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;
+  &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;
+  &lt;version&gt;8.0.33&lt;&#x2F;version&gt;
+&lt;&#x2F;dependency&gt;</code></pre>
+<p>查看mysql服务是否开启<br>以管理员的身份运行cmd<br><img src="/../images/02045ccacf9c4c08a4937fa360186d4f.png" alt="在这里插入图片描述"><br>输入 net start mysql,输入后是这个样子<br><img src="/../images/792a88ffe4ae48688e6abfd8ebc8f861.png" alt="在这里插入图片描述"><br>最后检查端口号是否被占用，还是在cmd中输入netstart -ano<br><img src="/../images/481eaf6ad0194cd0a3a817030c8b620d.png" alt="在这里插入图片描述"><br>找你在配置文件中设置的端口号，如何查看?<br>windows下默认是在C:&#x2F;ProgramData&#x2F;MySQL&#x2F;MySQL Server X.X&#x2F;my.ini或C:&#x2F;Program Files (x86)&#x2F;MySQL&#x2F;MySQL Server X.X&#x2F;my.ini。其中X.X代表MySQL版本号。在Linux系统下，MySQL配置文件通常位于&#x2F;etc&#x2F;my.cnf或&#x2F;etc&#x2F;mysql&#x2F;my.cnf<br><img src="/../images/c2efdfa7a54a4db98016f89b2167de2b.png" alt="在这里插入图片描述"><br>找到占用的程序，在任务管理器中结束掉，win+R输入services.msc找到mysql服务，重启试试。这是我能想到的所有解决办法</p>
+<h1 id="SpringBoot测试失败并报错-Unable-to-find-a-SpringBootConfiguration-you-need-to-use-ContextConfiguration"><a href="#SpringBoot测试失败并报错-Unable-to-find-a-SpringBootConfiguration-you-need-to-use-ContextConfiguration" class="headerlink" title="SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration"></a>SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration</h1><p>一般是测试类所在的包名和启动类的包名不一致造成的<br><img src="/../images/f2f1a7127c3c48b4bf728dfe017e2345.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -965,8 +1045,8 @@ return 0;
 <p>按ESC键，输入:wq按下回车<br>在终端输入source &#x2F;etc&#x2F;profile<br>在终端输入java -version,看看版本，若有反应则安装成功</p>
 ]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>Java</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
