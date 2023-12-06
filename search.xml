@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
+#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
+int main()
+&#123;
+	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
+	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
+	int num&#x3D;rand()%201-100;
+	&#x2F;&#x2F;产生一个-100到100之间的数
+	printf(&quot;你产生的随机数是%d\n&quot;,num);
+&#125;</code></pre>
+<p>运行结果<br>第一次,下面是控制台输出</p>
+<blockquote>
+<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
+</blockquote>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+&#123;
+	&#x2F;&#x2F;产生一个-200到200之间的数
+	srand((unsigned)time(NULL));
+	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
+	&#x2F;&#x2F;rand()%401-200
+	int num&#x3D;rand()%401-200;
+	printf(&quot;随机数的结果为%d\n&quot;,num);
+	return 0;
+&#125;
+</code></pre>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -688,64 +732,6 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
-    <title>C语言中的随机数</title>
-    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
-    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
-<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
-#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
-int main()
-&#123;
-	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
-	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
-	int num&#x3D;rand()%201-100;
-	&#x2F;&#x2F;产生一个-100到100之间的数
-	printf(&quot;你产生的随机数是%d\n&quot;,num);
-&#125;</code></pre>
-<p>运行结果<br>第一次,下面是控制台输出</p>
-<blockquote>
-<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
-</blockquote>
-<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
-<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;time.h&gt;
-#include&lt;stdlib.h&gt;
-int main()
-&#123;
-	&#x2F;&#x2F;产生一个-200到200之间的数
-	srand((unsigned)time(NULL));
-	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
-	&#x2F;&#x2F;rand()%401-200
-	int num&#x3D;rand()%401-200;
-	printf(&quot;随机数的结果为%d\n&quot;,num);
-	return 0;
-&#125;
-</code></pre>
-<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
-<li>没有说清楚srand和time的细节部分</li>
-<li>rand细节部分</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>随机函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Poem</title>
-    <url>//post/Poem.html</url>
-    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
-<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
-<p><strong>倘若相逢即别离</strong></p>
-<p><strong>迢迢千里无期</strong></p>
-<p><strong>此地 何时 再相遇</strong></p>
-]]></content>
-      <tags>
-        <tag>诗词</tag>
-        <tag>李白</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -821,6 +807,20 @@ int main()
       <tags>
         <tag>particle skills</tag>
         <tag>Search skill</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Poem</title>
+    <url>//post/Poem.html</url>
+    <content><![CDATA[<p><strong>杨花落尽子规啼，闻道龙标过五溪</strong></p>
+<p><strong>我寄愁心与明月，随风直到夜郎西</strong></p>
+<p><strong>倘若相逢即别离</strong></p>
+<p><strong>迢迢千里无期</strong></p>
+<p><strong>此地 何时 再相遇</strong></p>
+]]></content>
+      <tags>
+        <tag>诗词</tag>
+        <tag>李白</tag>
       </tags>
   </entry>
   <entry>
@@ -1109,6 +1109,221 @@ public class WebMvcConfig extends WebMvcConfigurationSupport &#123;
 ]]></content>
       <tags>
         <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单工厂模式</title>
+    <url>//post/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.html</url>
+    <content><![CDATA[<blockquote>
+<p>这个系列主要是记录我看大话设计模式这一本书的一些感受，</p>
+</blockquote>
+<p>设计一个计算器,以java为例</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><h1 id="第一个版本"><a href="#第一个版本" class="headerlink" title="第一个版本"></a>第一个版本</h1><p>不费吹灰之力，轻松拿下</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
+
+class Study&#123;
+    public static void main(String[] args) &#123;
+        Scanner s &#x3D; new Scanner(System.in);
+        System.out.print(&quot;请输入数字A:&quot;);
+        double numsA &#x3D; s.nextDouble();
+        System.out.print(&quot;请输入运算符号:&quot;);
+        String operator &#x3D; s.next().strip();
+        System.out.print(&quot;请输入数字B:&quot;);
+        double numsB &#x3D; s.nextDouble();
+        System.out.println(calculate(numsA,numsB,operator));
+        s.close();
+    &#125;
+    public static String calculate(double a,double b,String operator)&#123;
+        StringBuilder sb &#x3D; new StringBuilder();
+        switch (operator)&#123;
+            case &quot;+&quot;:
+                sb.append(String.format(&quot;%.1f + %.1f &#x3D; %.1f&quot;,a,b,a+b));
+                break;
+            case &quot;-&quot;:
+                sb.append(String.format(&quot;%.1f - %.1f &#x3D; %.1f&quot;,a,b,a-b));
+                break;
+            case &quot;*&quot;:
+                sb.append(String.format(&quot;%.1f * %.1f &#x3D; %.1f&quot;,a,b,a*b));
+                break;
+            case &quot;&#x2F;&quot;:
+                sb.append(String.format(&quot;%.1f &#x2F; %.1f &#x3D; %.11f&quot;,a,b,a&#x2F;b));
+                break;
+            default:
+                return &quot;运算符不支持或错误&quot;;
+        &#125;
+        return sb.toString();
+    &#125;
+&#125;</code></pre>
+<h2 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h2><ol>
+<li>运算符这一参数特别可能输错,用户怎么知道你支持哪些运算符?</li>
+<li>对于异常没有处理,如除以0的异常没有处理</li>
+</ol>
+<h1 id="第二个版本"><a href="#第二个版本" class="headerlink" title="第二个版本"></a>第二个版本</h1><p>加异常处理</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
+
+class Study&#123;
+    public static void main(String[] args) &#123;
+        Scanner s &#x3D; new Scanner(System.in);
+        System.out.print(&quot;请输入数字A:&quot;);
+        double numsA &#x3D; s.nextDouble();
+        System.out.print(&quot;请输入运算符号(+ - * &#x2F;):&quot;); &#x2F;&#x2F;这里用图形化界面可能更好点
+        String operator &#x3D; s.next().strip();
+        while(isOperator(operator))&#123;
+            System.out.print(&quot;不正确，重新输入:&quot;)
+            opertaor &#x3D; s.next().strip();    
+        &#125;
+        System.out.print(&quot;请输入数字B:&quot;);
+        double numsB &#x3D; s.nextDouble();
+        System.out.println(calculate(numsA,numsB,operator));
+        s.close();
+    &#125;
+    public static boolean isOperator(String s)&#123;
+        switch(s)&#123;
+            case &quot;+&quot;:
+            case &quot;-&quot;:
+            case &quot;*&quot;:
+            case &quot;&#x2F;&quot;:
+                return true;
+        &#125;
+        return false;
+    &#125;
+    public static String calculate(double a,double b,String operator)&#123;
+        StringBuilder sb &#x3D; new StringBuilder();
+        switch (operator)&#123;
+            case &quot;+&quot;:
+                sb.append(String.format(&quot;%.1f + %.1f &#x3D; %.1f&quot;,a,b,a+b));
+                break;
+            case &quot;-&quot;:
+                sb.append(String.format(&quot;%.1f - %.1f &#x3D; %.1f&quot;,a,b,a-b));
+                break;
+            case &quot;*&quot;:
+                sb.append(String.format(&quot;%.1f * %.1f &#x3D; %.1f&quot;,a,b,a*b));
+                break;
+            case &quot;&#x2F;&quot;:
+                if(b&#x3D;&#x3D;0)
+                    return &quot;不能除0&quot;;
+                sb.append(String.format(&quot;%.1f &#x2F; %.1f &#x3D; %.11f&quot;,a,b,a&#x2F;b));
+                break;
+            default:
+                return &quot;运算符不支持或错误&quot;;
+        &#125;
+        return sb.toString();
+    &#125;
+&#125;</code></pre>
+<h2 id="第三个版本"><a href="#第三个版本" class="headerlink" title="第三个版本"></a>第三个版本</h2><h3 id="一些感悟"><a href="#一些感悟" class="headerlink" title="一些感悟"></a>一些感悟</h3><p>以下感受是结合活字印刷的</p>
+<ul>
+<li>可维护性:只用改想改的地方，不用改不想改的地方，或者说只用改局部，不用改整体。比如文章局部不好，只需要对局部进行修改，而不用改整体</li>
+<li>可复用性:按功能点划分，形成一个组件，这样可以在以后的业务中能反复使用，公司里好像叫组件库或者构件库。我的理解就是一个字不可能只用一次，常用的字在文章中有大量的使用</li>
+<li>可扩展性: 加功能点很容易。结合活字印刷来说就是添加文字特别简单</li>
+<li>灵活性好:通过简易的操作来实现一些简单的功能。</li>
+</ul>
+<p>设计过程:在整个过程中，只有运算的数在改变，运算规则不变，将运算规则抽取出来（作为一个类operator，+-*&#x2F;都继承operator即可），运算的数字作为参数传递过去。</p>
+<p>Operator类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+abstract class Operator&#123;
+    public Double getA() &#123;
+        return a;
+    &#125;
+
+    public void setA(Double a) &#123;
+        this.a &#x3D; a;
+    &#125;
+
+    public Double getB() &#123;
+        return b;
+    &#125;
+
+    public void setB(Double b) &#123;
+        this.b &#x3D; b;
+    &#125;
+
+    private Double a,b;
+    public Operator(Double a,Double b)&#123;
+        this.a &#x3D; a;
+        this.b &#x3D; b;
+    &#125;
+    public Operator()&#123;
+
+    &#125;
+    public abstract double getResult();
+&#125;
+&#125;</code></pre>
+
+<p>加减乘除类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Add extends Operator&#123;
+
+
+    @Override
+    public double getResult() &#123;
+        return getA()+getB();
+    &#125;
+&#125;
+class Sub extends Operator&#123;
+    @Override
+    public double getResult() &#123;
+        return getA() - getB();
+    &#125;
+&#125;
+class Mul extends Operator&#123;
+    @Override
+    public double getResult() &#123;
+        return getA()*getB();
+    &#125;
+&#125;
+class Div extends Operator&#123;
+
+
+    @Override
+    public double getResult()throws ArithmeticException &#123;
+        double res &#x3D; 0;
+        if(getB()&#x3D;&#x3D;0)
+            throw new ArithmeticException(&quot;除数为0&quot;);
+        else res &#x3D; getA()&#x2F;getB();
+        return res;
+    &#125;
+&#125;</code></pre>
+<p>工厂类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class OperatorFactory&#123;
+    public static Operator GenerateOperatorByCharacter(String s)&#123;
+        Operator res &#x3D; null;
+        switch (s)&#123;
+            case &quot;+&quot;:
+                res &#x3D; new Add();
+                break;
+            case &quot;-&quot;:
+                res &#x3D; new Sub();
+                break;
+            case &quot;*&quot;:
+                res &#x3D; new Mul();
+                break;
+            case &quot;&#x2F;&quot;:
+                res &#x3D; new Div();
+                break;
+        &#125;
+        return res;
+    &#125;
+&#125;</code></pre>
+
+<p>主程序</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static void main(String[] args) &#123;
+    Scanner s &#x3D; new Scanner(System.in);
+    System.out.print(&quot;请输入数字A:&quot;);
+    double numsA &#x3D; s.nextDouble();
+    System.out.print(&quot;请输入运算符号:&quot;);
+    String operator &#x3D; s.next().strip();
+    System.out.print(&quot;请输入数字B:&quot;);
+    double numsB &#x3D; s.nextDouble();
+    Operator operator1 &#x3D; OperatorFactory.GenerateOperatorByCharacter(operator);
+    operator1.setA(numsA);
+    operator1.setB(numsB);
+    System.out.println(operator1.getResult());
+    s.close();
+&#125;</code></pre>
+<p>这样一来若加入其他运算只用加类，在工厂方法中加入代码即可</p>
+<h1 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h1><p>明天再写</p>
+]]></content>
+      <tags>
+        <tag>设计模式</tag>
       </tags>
   </entry>
 </search>
