@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言中的随机数</title>
-    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
-    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
-<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
-#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
-int main()
-&#123;
-	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
-	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
-	int num&#x3D;rand()%201-100;
-	&#x2F;&#x2F;产生一个-100到100之间的数
-	printf(&quot;你产生的随机数是%d\n&quot;,num);
-&#125;</code></pre>
-<p>运行结果<br>第一次,下面是控制台输出</p>
-<blockquote>
-<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
-</blockquote>
-<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
-<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
-#include&lt;time.h&gt;
-#include&lt;stdlib.h&gt;
-int main()
-&#123;
-	&#x2F;&#x2F;产生一个-200到200之间的数
-	srand((unsigned)time(NULL));
-	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
-	&#x2F;&#x2F;rand()%401-200
-	int num&#x3D;rand()%401-200;
-	printf(&quot;随机数的结果为%d\n&quot;,num);
-	return 0;
-&#125;
-</code></pre>
-<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
-<li>没有说清楚srand和time的细节部分</li>
-<li>rand细节部分</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>随机函数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BombLab</title>
     <url>//post/BombLab.html</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>6关卡，每个关卡需要输入相应的内容，通过逆向工程来获取对应关卡的通过条件</p>
@@ -732,6 +688,50 @@ for(rax&#x3D;0;rax&lt;6;rax++) &#x2F;&#x2F;底层里面nums[6]&#x3D;0,要是不�
       </tags>
   </entry>
   <entry>
+    <title>C语言中的随机数</title>
+    <url>//post/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.html</url>
+    <content><![CDATA[<p>今天在一个小程序中看到了一个随机函数，心血来潮，来记录一下，顺便回忆一下c#(有点懒，c#部分后期再补)</p>
+<h1 id="c语言中产生随机数"><a href="#c语言中产生随机数" class="headerlink" title="c语言中产生随机数"></a>c语言中产生随机数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;&#x2F;&#x2F;这里要注意，必须写，不然vs报错，因为rand函数在stdlib下面
+#include &lt;time.h&gt;&#x2F;&#x2F;这里要注意，因为随机数是根据系统日期所产生的.
+int main()
+&#123;
+	srand(time(0));&#x2F;&#x2F;根据当前系统日期产生随机数
+	&#x2F;&#x2F;srand((unsigned) time(NULL));也可以这样写
+	int num&#x3D;rand()%201-100;
+	&#x2F;&#x2F;产生一个-100到100之间的数
+	printf(&quot;你产生的随机数是%d\n&quot;,num);
+&#125;</code></pre>
+<p>运行结果<br>第一次,下面是控制台输出</p>
+<blockquote>
+<p>你产生的随机数是47<br>第二次<br>你产生的随机数是-34</p>
+</blockquote>
+<h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p>rand函数指定数字范围原理<br>要让随机数限定在一个范围，可以采用模除加加法的方式。<br>要产生随机数r， 其范围为 m&lt;&#x3D;r&lt;&#x3D;n，可以使用如下公式：<br>rand()%(n-m+1)+m<br>其原理为，对于任意数，<br>0&lt;&#x3D;rand()%(n-m+1)&lt;&#x3D;n-m<br>同时加上m<br>0+m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n-m+m<br>得到<br>m&lt;&#x3D;rand()%(n-m+1)+m&lt;&#x3D;n</p>
+<h2 id="rand的例子"><a href="#rand的例子" class="headerlink" title="rand的例子"></a>rand的例子</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;time.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+&#123;
+	&#x2F;&#x2F;产生一个-200到200之间的数
+	srand((unsigned)time(NULL));
+	&#x2F;&#x2F;rand()%(200-(-200)+1)+(-200)
+	&#x2F;&#x2F;rand()%401-200
+	int num&#x3D;rand()%401-200;
+	printf(&quot;随机数的结果为%d\n&quot;,num);
+	return 0;
+&#125;
+</code></pre>
+<h2 id="不足点"><a href="#不足点" class="headerlink" title="不足点"></a>不足点</h2><ol>
+<li>没有说清楚srand和time的细节部分</li>
+<li>rand细节部分</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>C语言</tag>
+        <tag>随机函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SearchSkills</title>
     <url>//post/SearchSkills.html</url>
     <content><![CDATA[<table>
@@ -939,16 +939,6 @@ show slave status\G</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
-    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
-    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/20200607202928750.jpg" alt="选择"><br><img src="/../images/20200607203006912.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/20200607202153355.jpg" alt="修改"><br><img src="/../images/20200607202319969.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
-<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
-]]></content>
-      <tags>
-        <tag>VS报错</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows远程连接Redis(Ubuntu)</title>
     <url>//post/Windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Redis-Ubuntu.html</url>
     <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
@@ -968,6 +958,16 @@ show slave status\G</code></pre>
       <tags>
         <tag>Linux</tag>
         <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</title>
+    <url>//post/VS2019%E4%B8%AD%E5%87%BA%E7%8E%B0%E3%80%90Windows-SDK%E3%80%91%E6%89%BE%E4%B8%8D%E5%88%B0-Windows-SDK-%E7%89%88%E6%9C%AC10-0-18362-0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html</url>
+    <content><![CDATA[<h1 id="VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法"><a href="#VS2019中出现【Windows-SDK】找不到-Windows-SDK-版本10-0-18362-0的解决办法" class="headerlink" title="VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法"></a>VS2019中出现【Windows SDK】找不到 Windows SDK 版本10.0.18362.0的解决办法</h1><h2 id="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0"><a href="#方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10-0-18362-0" class="headerlink" title="方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0"></a>方法一：在项目上右击选择重定目标解决方案，将windosSdk的版本号选择10.0.18362.0</h2><p><img src="/../images/20200607202928750.jpg" alt="选择"><br><img src="/../images/20200607203006912.jpg" alt="在这里插入图片描述"><br>如果这个不能解决问题<br>请看这里<br>在Visual Studio Installer中<img src="/../images/20200607202153355.jpg" alt="修改"><br><img src="/../images/20200607202319969.jpg" alt="勾选Windows 10 SDK(10.0.17764.0)点击修改即可"><br>勾选Windows 10 SDK(10.0.17764.0)点击修改即可<br>完成</p>
+<p>是在不行，自己到微软官网上下载一个，<a href="https://developer.microsoft.com/zh-cn/windows/downloads/sdk-archive/">请点击这里</a></p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
       </tags>
   </entry>
   <entry>
@@ -1115,7 +1115,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport &#123;
     <title>简单工厂模式</title>
     <url>//post/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.html</url>
     <content><![CDATA[<blockquote>
-<p>这个系列主要是记录我看大话设计模式这一本书的一些感受，</p>
+<p>这个系列主要是记录我看大话设计模式这一本书的一些感受，会有部分图片是来自于《大话设计模式》这本书</p>
 </blockquote>
 <p>设计一个计算器,以java为例</p>
 <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><h1 id="第一个版本"><a href="#第一个版本" class="headerlink" title="第一个版本"></a>第一个版本</h1><p>不费吹灰之力，轻松拿下</p>
@@ -1320,7 +1320,76 @@ class Div extends Operator&#123;
     s.close();
 &#125;</code></pre>
 <p>这样一来若加入其他运算只用加类，在工厂方法中加入代码即可</p>
-<h1 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h1><p>明天再写</p>
+<h1 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h1><p>这个多看看就行，来看一个比较全的图<br><img src="/../images/Snipaste_2023-12-11_15-30-40.jpg" alt="UML类图全"></p>
+<p>在UML中+-#的含义如下</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>表示的修饰符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>public</td>
+</tr>
+<tr>
+<td>-</td>
+<td>private</td>
+</tr>
+<tr>
+<td>#</td>
+<td>protected</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在UML图中‘+’表示public,’-‘表示private,’#’表示protected</p>
+</blockquote>
+<h2 id="类的表示"><a href="#类的表示" class="headerlink" title="类的表示"></a>类的表示</h2><p>从动物这个类开始解析<br><img src="/../images/animal%20resolve.jpg" alt="解析动物类"><br><b>一个矩形框就是一个类，第一层就是类名，如果是抽象类，类名须用斜体，第二层是属性和字段，第三层是方法或行为。</p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>表示:虚线的实心箭头<br>我的个人理解就是在B中用到了A，那么B就依赖于A，B受制于A。<br><img src="/../images/resolveDependency.jpg"><br>想起了一张图片：燕子，没有你我可怎么活啊<br><img src="/../images/explainDependency.gif"></p>
+<h2 id="接口的表示"><a href="#接口的表示" class="headerlink" title="接口的表示"></a>接口的表示</h2><p>和类表示的不同之处主要在于其顶端有《interface》，第一行是接口名称；第二行是接口方法；<br><img src="/../images/interface.jpg"><br>还有一种方式来表示接口,以下面的图为例，应该是唐老鸭实现了讲人话的接口<br><img src="/../images/ExpressInterfaceTwo.jpg"></p>
+<h2 id="继承类和实现接口的表示"><a href="#继承类和实现接口的表示" class="headerlink" title="继承类和实现接口的表示"></a>继承类和实现接口的表示</h2><p>实现接口是用空心三角形+虚线来表示.例如:<br><img src="/../images/inherit.jpg"><br>继承使用空心三角形+实线来表示<br><img src="/../images/implementaInterface.jpg"></p>
+<h2 id="关联的表示"><a href="#关联的表示" class="headerlink" title="关联的表示"></a>关联的表示</h2><p>表示：用实现箭头来表示<br><img src="/../images/association.jpg"><br>此书中表示：当一个类“知道”另一个类时，可以用关联。但是让我不理解的是什么叫做知道？</p>
+<h2 id="聚合的表示"><a href="#聚合的表示" class="headerlink" title="聚合的表示"></a>聚合的表示</h2><p>用空心的菱形+实现箭头来表示<br><img src="/../images/aggregation.jpg"><br>表示一种<b>弱</b>的‘拥有’关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。</p>
+<blockquote>
+<p>弱的体现<br>个体离开了群体还能存活</p>
+</blockquote>
+<h2 id="组合的表示"><a href="#组合的表示" class="headerlink" title="组合的表示"></a>组合的表示</h2><p>用<b>实心的菱形+实现箭头</b>来表示<br><img src="/../images/Composition.jpg"><br>其表示一种<b>强</b>的拥有关系，说人话就是群体离开了个体，这个群体就废了.以图片为例，鸟没了翅膀不就废了吗<br>图片上的1和2是表示基数<br>2：表示1只鸟有两个翅膀<br>1：表示两个翅膀对应一只鸟</p>
+<h2 id="总结篇"><a href="#总结篇" class="headerlink" title="总结篇"></a>总结篇</h2><p>这里只总结容易混的东西</p>
+<table>
+<thead>
+<tr>
+<th>关系</th>
+<th>表示</th>
+<th>技巧</th>
+<th>指向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承</td>
+<td>实线空心三角形</td>
+<td>继承的都是具体的东西，用实线</td>
+<td>从子类指向父类</td>
+</tr>
+<tr>
+<td>实现接口</td>
+<td>虚线空心三角形</td>
+<td>实现的是相较于比较虚的，用虚线</td>
+<td>从类指向接口</td>
+</tr>
+<tr>
+<td>组合</td>
+<td>实心菱形+实线箭头</td>
+<td>，由于比较强（内心丰盈）所以是实心</td>
+<td>部分指向整体</td>
+</tr>
+<tr>
+<td>聚合</td>
+<td>空心的菱形+实线箭头</td>
+<td>约束性不强，空心</td>
+<td>部分指向整体</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
         <tag>设计模式</tag>
