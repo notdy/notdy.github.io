@@ -998,6 +998,20 @@
       </tags>
   </entry>
   <entry>
+    <title>错误	C2371	Cheer 重定义；不同的基类型</title>
+    <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
+    <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
+<p>问题区: <img src="/../images/20200704155605706.jpg" alt="报错"></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/20200704155947750.jpg" alt="方法一"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
+<div class="language-c"><button title="Copy code" class="copy"></button><span class="lang">c</span><pre class="shiki material-theme-palenight" style="background-color: #1a1a1a" tabindex="0"><code><span class="line"><span style="color: #C792EA">void</span><span style="color: #BABED8"> </span><span style="color: #82AAFF">Cheer</span><span style="color: #89DDFF">()</span><span style="color: #676E95; font-style: italic">//这个就是函数头</span></span></code></pre></div><p><img src="/../images/20200704160345300.jpg" alt="方法一"><br>若上面的有错误，请各位大佬指出，谢谢</p>
+]]></content>
+      <tags>
+        <tag>VS报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>springboot访问请求404的原因</title>
     <url>//post/springboot%E8%AE%BF%E9%97%AE%E8%AF%B7%E6%B1%82404%E7%9A%84%E5%8E%9F%E5%9B%A0.html</url>
     <content><![CDATA[<blockquote>
@@ -1042,17 +1056,37 @@
       </tags>
   </entry>
   <entry>
-    <title>错误	C2371	Cheer 重定义；不同的基类型</title>
-    <url>//post/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E7%B1%BB%E5%9E%8B.html</url>
-    <content><![CDATA[<p>错误	C2371	“Cheer”: 重定义；不同的基类型</p>
-<p>问题区: <img src="/../images/20200704155605706.jpg" alt="报错"></p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>这是因为c语言编译器是从上往下执行的，也就是说你必须要把使用的函数名放在main函数之前，编译器把你写的代码读进去，每看到一个函数，就记下他的名字</p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>把调用的函数写到main函数前面；<br>如<br><img src="/../images/20200704155947750.jpg" alt="方法一"></p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>我教程上面说可以把函数头写到main函数前面，什么叫做函数头？</p>
-<div class="language-c"><button title="Copy code" class="copy"></button><span class="lang">c</span><pre class="shiki material-theme-palenight" style="background-color: #1a1a1a" tabindex="0"><code><span class="line"><span style="color: #C792EA">void</span><span style="color: #BABED8"> </span><span style="color: #82AAFF">Cheer</span><span style="color: #89DDFF">()</span><span style="color: #676E95; font-style: italic">//这个就是函数头</span></span></code></pre></div><p><img src="/../images/20200704160345300.jpg" alt="方法一"><br>若上面的有错误，请各位大佬指出，谢谢</p>
+    <title>判定质数</title>
+    <url>//post/%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0.html</url>
+    <content><![CDATA[<div class="language-java"><button title="Copy code" class="copy"></button><span class="lang">java</span><pre class="shiki material-theme-palenight" style="background-color: #1a1a1a" tabindex="0"><code><span class="line"><span style="color: #C792EA">public</span><span style="color: #BABED8"> </span><span style="color: #C792EA">static</span><span style="color: #BABED8"> </span><span style="color: #C792EA">boolean</span><span style="color: #BABED8"> </span><span style="color: #82AAFF">isPrime</span><span style="color: #89DDFF">(</span><span style="color: #C792EA">int</span><span style="color: #BABED8"> n</span><span style="color: #89DDFF">)&#123;</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #89DDFF">(</span><span style="color: #BABED8">n</span><span style="color: #89DDFF">&lt;</span><span style="color: #F78C6C">2</span><span style="color: #89DDFF">)</span></span>
+<span class="line"><span style="color: #BABED8">            </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #BABED8"> </span><span style="color: #89DDFF">false;</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF; font-style: italic">for</span><span style="color: #89DDFF">(</span><span style="color: #C792EA">int</span><span style="color: #BABED8"> i</span><span style="color: #89DDFF">=</span><span style="color: #F78C6C">2</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">&lt;=</span><span style="color: #BABED8">n</span><span style="color: #89DDFF">/</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">++)&#123;</span></span>
+<span class="line"><span style="color: #BABED8">            </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #89DDFF">(</span><span style="color: #BABED8">n</span><span style="color: #89DDFF">%</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">==</span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">)</span></span>
+<span class="line"><span style="color: #BABED8">                </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #BABED8"> </span><span style="color: #89DDFF">false;</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF">&#125;</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF; font-style: italic">return</span><span style="color: #BABED8"> </span><span style="color: #89DDFF">true;</span></span>
+<span class="line"><span style="color: #BABED8">    </span><span style="color: #89DDFF">&#125;</span></span></code></pre></div><h1 id="细节1-为什么要写成i"><a href="#细节1-为什么要写成i" class="headerlink" title="细节1 为什么要写成i&lt;&#x3D;n&#x2F;i呢？"></a>细节1 为什么要写成i&lt;&#x3D;n&#x2F;i呢？</h1><h2 id="整除与整除于的区别"><a href="#整除与整除于的区别" class="headerlink" title="整除与整除于的区别"></a>整除与整除于的区别</h2><ul>
+<li>“整除”通常是指一个数a能够被另一个数b整除，即存在一个整数c，使得 <code>a = b × c</code>。a 和 b 是被除数和除数，c 是商。</li>
+<li>“整除于”则是指一个数 a 能够被另一个数 b 整除于，即存在一个整数 c，使得 <code>a = b × c + d</code>。在这里，d 是余数。</li>
+</ul>
+<h2 id="数学定理1"><a href="#数学定理1" class="headerlink" title="数学定理1"></a>数学定理1</h2><blockquote>
+<p>如果n % d &#x3D;&#x3D; 0，那么(n&#x2F;d) % n &#x3D;&#x3D; 0。<br>由整除性的定义直接推出。</p>
+<p>因为n % d &#x3D;&#x3D; 0，所以存在一个整数k，使得n &#x3D; kd,也就是n &#x2F;d &#x3D; k</p>
+<p>那么n&#x2F;d &#x3D; kd&#x2F;d &#x3D; k，因此(n&#x2F;d) % n &#x3D;&#x3D; 0。</p>
+<p>例如，假设n &#x3D; 15，d &#x3D; 3。</p>
+<p>首先，我们知道15 % 3 &#x3D;&#x3D; 0。</p>
+<p>然后，我们可以计算n&#x2F;d &#x3D; 15 &#x2F; 3 &#x3D; 5。</p>
+<p>最后，我们可以验证5 % 15 &#x3D;&#x3D; 0，即5整除15。</p>
+<p>所以，这个例子证明了如果d整除于n，那么n&#x2F;d必然整除于n。</p>
+</blockquote>
+<h2 id="数学定理2"><a href="#数学定理2" class="headerlink" title="数学定理2"></a>数学定理2</h2><blockquote>
+<p>1~n之间的质数一定都小于等于sqrt(n);<br>质数这里用p来表示<br>p&lt;&#x3D;sqrt(n)<br>因为sqrt(n)是上界,<br>p&#x3D;sqrt(n)<br>p^2^&#x3D;n  &#x3D;&gt; p &#x3D; n&#x2F;p &#x3D; sqrt(n) 所以上界就是n&#x2F;p</p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>VS报错</tag>
+        <tag>Algorithm</tag>
+        <tag>数论</tag>
       </tags>
   </entry>
   <entry>
@@ -1312,6 +1346,49 @@
 ]]></content>
       <tags>
         <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>筛质数</title>
+    <url>//post/%E7%AD%9B%E8%B4%A8%E6%95%B0.html</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个正整数 n<br>，请你求出 1∼n<br> 中质数的个数。</p>
+<p>输入格式<br>共一行，包含整数 n。</p>
+<p>输出格式<br>共一行，包含一个整数，表示 1∼n 中质数的个数。</p>
+<p>数据范围</p>
+<blockquote>
+<p>1≤n≤106</p>
+</blockquote>
+<p>输入样例：</p>
+<blockquote>
+<p>8</p>
+</blockquote>
+<p>输出样例：</p>
+<blockquote>
+<p>4</p>
+</blockquote>
+<h1 id="埃氏筛"><a href="#埃氏筛" class="headerlink" title="埃氏筛"></a>埃氏筛</h1><blockquote>
+<p>思路:</p>
+<p> 开一个标记数组mark，长度是n; 遍历区间[2,sqrt(n)]之间的数字,若mark[i]为false</p>
+<p>计数器加1，把所有i的倍数全部标记为true</p>
+</blockquote>
+<div class="language-java"><button title="Copy code" class="copy"></button><span class="lang">java</span><pre class="shiki material-theme-palenight" style="background-color: #1a1a1a" tabindex="0"><code><span class="line"><span style="color: #C792EA">void</span><span style="color: #BABED8"> </span><span style="color: #82AAFF">printPrime</span><span style="color: #89DDFF">(</span><span style="color: #C792EA">int</span><span style="color: #BABED8"> n</span><span style="color: #89DDFF">)&#123;</span></span>
+<span class="line"><span style="color: #BABED8">    </span><span style="color: #89DDFF; font-style: italic">for</span><span style="color: #89DDFF">(</span><span style="color: #C792EA">int</span><span style="color: #BABED8"> i</span><span style="color: #89DDFF">=</span><span style="color: #F78C6C">2</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">&lt;=</span><span style="color: #BABED8">n</span><span style="color: #89DDFF">/</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">++)&#123;</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF; font-style: italic">if</span><span style="color: #89DDFF">(</span><span style="color: #BABED8">mark</span><span style="color: #89DDFF">[</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">])</span></span>
+<span class="line"><span style="color: #BABED8">            </span><span style="color: #89DDFF; font-style: italic">continue</span><span style="color: #89DDFF">;</span></span>
+<span class="line"><span style="color: #BABED8">        cnt</span><span style="color: #89DDFF">++;</span></span>
+<span class="line"><span style="color: #89DDFF">        </span><span style="color: #676E95; font-style: italic">//这个for循环也可以放到上面的if当中</span></span>
+<span class="line"><span style="color: #BABED8">        </span><span style="color: #89DDFF; font-style: italic">for</span><span style="color: #89DDFF">(</span><span style="color: #C792EA">int</span><span style="color: #BABED8"> j</span><span style="color: #89DDFF">=</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">+</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">j</span><span style="color: #89DDFF">&lt;=</span><span style="color: #BABED8">n</span><span style="color: #89DDFF">;</span><span style="color: #BABED8">j</span><span style="color: #89DDFF">+=</span><span style="color: #BABED8">i</span><span style="color: #89DDFF">)</span></span>
+<span class="line"><span style="color: #BABED8">            mark</span><span style="color: #89DDFF">[</span><span style="color: #BABED8">j</span><span style="color: #89DDFF">]=true;</span></span>
+<span class="line"><span style="color: #BABED8">    </span><span style="color: #89DDFF">&#125;</span></span>
+<span class="line"><span style="color: #89DDFF">&#125;</span></span></code></pre></div><h1 id="线性筛"><a href="#线性筛" class="headerlink" title="线性筛"></a>线性筛</h1><p>这个算法的比上面的要快，但还不是很会</p>
+<blockquote>
+<p>思路</p>
+<p>遍历区间2到n，如果标记数组mark[i]为false，那么质数表primer[cnt++]&#x3D;i,<br>遍历小于等于n的质数表，将mark[i*primer[j]]标记为true,如果i %primer[j]&#x3D;0,则跳出循环</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>数论</tag>
       </tags>
   </entry>
   <entry>
